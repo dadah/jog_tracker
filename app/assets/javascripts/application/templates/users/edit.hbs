@@ -1,0 +1,30 @@
+<h1>
+  User
+</h1>
+<div class="alert alert-success success"></div>
+<div class="alert alert-danger error"></div>
+<form name="user_form" id="user_form" data-parsley-validate>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="{{name}}" class="form-control" required data-parsley-required/>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" data-parsley-type="email" required data-parsley-required id="email" value="{{email}}" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" {{#unless email}}required data-parsley-required{{/unless}} class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label for="role">Role</label>
+    <select name="role" id="role" class="form-control">
+      {{#select role}}
+        {{#each roles}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      {{/select}}
+    </select>
+  </div>
+  <button type="submit" id="create_button" class="btn btn-primary">Save</button>
+</form>

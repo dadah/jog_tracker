@@ -1,0 +1,5 @@
+class App.Collections.Users extends App.Collection
+  model: App.Models.User
+
+  url: () ->
+    "<%=Settings.frontend.api_url%>/api/v1/users?token=#{@authToken()}"

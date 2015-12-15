@@ -1,0 +1,21 @@
+<td>
+  {{run_date}}
+</td>
+<td>
+  {{run_time}}
+</td>
+<td>
+  {{distance}}
+</td>
+<td>
+  {{average_speed}}
+</td>
+{{#if showsUser}}
+  <td>
+    <a href="/users/{{user.id}}/edit">{{user.name}}</a>
+  </td>
+{{/if}}
+<td class="centralize">
+  <a href="/runs/{{id}}/edit" class="btn btn-warning">Edit</a>
+  <button data-role="remover" class="btn btn-danger">delete</a>
+</td>

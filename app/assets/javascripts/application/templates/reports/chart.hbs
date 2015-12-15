@@ -1,0 +1,24 @@
+<div class="navbar navbar-default">
+  <div class="navbar-form navbar-left">
+    {{#unless isUser}}
+    <div class="form-group">
+      <label for="user">Report for user</label>
+      <select data-role="user" class="form-control">
+        {{#select userId}}
+        {{#each users}}
+          <option value="{{id}}">{{name}} - {{email}}</option>
+        {{/each}}
+        {{/select}}
+      </select>
+    </div>
+    {{/unless}}
+    <div class="form-group">
+      <label for="months">Starting from</label>
+      <input type="number" data-role="weekRange" value="10" min="1" name="months" class="form-control"/> months ago
+    </div>
+    <button data-role="clearFilters" class="btn btn-default">Clear Filters</button>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div id="chart_div"></div>
+</div>

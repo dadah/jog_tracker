@@ -1,0 +1,45 @@
+<h1>
+  Runs
+</h1>
+<div class="navbar navbar-default">
+  <div class="navbar-form navbar-left">
+    <div class="form-group">
+      <label for="starts_at">From</label>
+      <input type="date" data-role="filter_start" data-filter="starts_at" class="form-control" placeholder="From" name="starts_at"/>
+    </div>
+    <div class="form-group">
+      <label for="ends_at">To</label>
+      <input type="date" data-role="filter_end" data-filter="ends_at" class="form-control" placeholder="To" name="ends_at"/>
+    </div>
+    <button data-role="clearFilters" class="btn btn-default">Clear Filters</button>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>
+        Run Date
+      </th>
+      <th>
+        Time (in seconds)
+      </th>
+      <th>
+        Distance (in meters)
+      </th>
+      <th>
+        Average Speed (in km/h)
+      </th>
+      {{#if showsUser}}
+        <th>
+          User
+        </th>
+      {{/if}}
+      <th class="centralize">
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody data-role="runs">
+  </tbody>
+</table>
+<a href="runs/new" class="btn btn-primary">Register a new run</a>

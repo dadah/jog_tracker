@@ -1,0 +1,5 @@
+class App.Collections.Runs extends App.Collection
+  model: App.Models.Run
+
+  url: () ->
+    "<%=Settings.frontend.api_url%>/api/v1/runs?token=#{@authToken()}"

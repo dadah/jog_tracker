@@ -1,0 +1,30 @@
+class App.Views.Auth.Index extends App.View
+  template: HandlebarsTemplates['auth/index']
+
+  events:
+    "submit #login_form": "login"
+
+  login: (evt)->
+    evt.preventDefault()
+    $.post(
+      "<%=Settings.frontend.api_url%>/api/v1/auth",
+      {
+        email: $("#email").val(),
+        password: $("#password").val()
+      })
+      .done (authToken) =>
+        user = new App.Models.User()
+        user.url = "<%=Settings.frontend.api_url%>/api/v1/users/me?token=#{authToken.token}"
+        user.fetch().done () =>
+          @$el.find(".error").html("")
+          localStorage.setItem('authToken', JSON.stringify(authToken));
+          localStorage.setItem('currentUser', JSON.stringify(user.toJSON()));
+          Backbone.history.navigate("/runs", trigger: true)
+      .fail () =>
+        @$el.find(".error").html(
+          "Login failed!"
+        )
+
+  render: ->
+    @$el.html(@template())
+    $('#login_form').parsley()

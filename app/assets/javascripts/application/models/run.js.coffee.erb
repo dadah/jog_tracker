@@ -1,0 +1,8 @@
+class App.Models.Run extends App.Model
+  urlRoot: "<%=Settings.frontend.api_url%>/api/v1/runs"
+
+  url: ->
+    if @id?
+      "#{@urlRoot}/#{@id}?token=#{@authToken()}"
+    else
+      "#{@urlRoot}?token=#{@authToken()}"

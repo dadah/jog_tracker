@@ -1,0 +1,42 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+.centralize {
+  text-align: center;
+}
+
+.min input {
+  width: 100px;
+  display: inline;
+}
+
+.min ul {
+  display: inline
+}
+
+.form-control.parsley-error{
+    color: #b94a48 !important;
+    background-color: #f2dede !important;
+    border: 1px solid #EED3D7 !important;
+}
+
+.parsley-errors-list {
+  display: inline;
+  list-style-type: none;
+  color: red;
+}
+
+.parsley-errors-list li {
+  display: inline;
+  z-index: 40px;
+  position: relative;
+}
+
+.alert:empty {
+  display: none;
+}
